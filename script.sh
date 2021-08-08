@@ -1,3 +1,4 @@
+#!/bin/bash
 ip="18.117.101.101"
 platforms=("codechef" "codeforces" "hackerearth" "hackerrank")
 phases=("upcoming" "running" "ended")
