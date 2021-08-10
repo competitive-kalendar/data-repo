@@ -1,4 +1,6 @@
 #!/bin/bash
+git pull
+
 ip="18.117.101.101"
 platforms=("codechef" "codeforces" "hackerearth" "hackerrank")
 phases=("upcoming" "running" "ended")
@@ -11,7 +13,6 @@ do
 curl "http://$ip/api/contests?platform=${platforms[$i]}&phase=${phases[$j]}" > ${platforms[$i]}/${phases[$j]}
 done
 done
-
 
 
 git add .
