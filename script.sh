@@ -7,6 +7,7 @@ phases=("upcoming" "running" "ended")
 curl "http://$ip/api/contests" > contests
 curl "http://$ip/api/contests?phase=upcoming" > upcoming
 curl "http://$ip/api/contests?phase=ended" > ended
+curl "http://$ip/api/contests?phase=running" > running
 for i in {0..3}
 do
 curl "http://$ip/api/contests?platform=${platforms[$i]}" > ${platforms[$i]}/contests
