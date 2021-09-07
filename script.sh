@@ -1,7 +1,25 @@
 #!/bin/bash
+
+function update_db()
+{
+path=/update_log
+echo -e "\n\n"  >> $path
+
+date >> $path
+
+echo -e "AWS\n" >> $path
+
+curl -X POST "http://$IP_backend/update?platform=all">> $path
+
+}
+
+
+
+function update_repo()
+{
+
 git pull
 
-#IP="18.117.101.101"
 platforms=("codechef" "codeforces" "hackerearth" "hackerrank")
 phases=("upcoming" "running" "ended")
 curl "http://$IP/contests" > contests
@@ -17,8 +35,12 @@ curl "http://$IP/contests?platform=${platforms[$i]}&phase=${phases[$j]}" > ${pla
 done
 done
 
-
 git add .
 git commit -m "updated"
 git push
 
+}
+
+
+update_db
+update_repo
